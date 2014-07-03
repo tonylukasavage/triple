@@ -1,0 +1,24 @@
+{
+  "name": "ti-repl",
+  "version": "0.0.0",
+  "description": "REPL for Titanium",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonylukasavage/ti-repl.git"
+  },
+  "keywords": [
+    "titanium",
+    "repl",
+    "appcelerator"
+  ],
+  "author": "Tony Lukasavage",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tonylukasavage/ti-repl/issues"
+  },
+  "homepage": "https://github.com/tonylukasavage/ti-repl"
+}
