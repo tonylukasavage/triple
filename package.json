@@ -1,8 +1,7 @@
 {
   "name": "ti-repl",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "REPL for Titanium",
-  "keywords": [],
   "homepage": "git://github.com/tonylukasavage/ti-repl",
   "bugs": {
     "url": "https://github.com/tonylukasavage/ti-repl/issues",
@@ -14,7 +13,7 @@
     "email": "anthony.lukasavage@gmail.com",
     "url": "https://github.com/tonylukasavage"
   },
-  "main": "./lib/ti-repl.js",
+  "main": "index.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -23,15 +22,20 @@
     "url": "git://github.com/tonylukasavage/ti-repl.git"
   },
   "devDependencies": {
-	"grunt": "~0.4.5",
-	"grunt-mocha-test": "~0.10.2",
-	"grunt-contrib-jshint": "~0.10.0",
-	"grunt-contrib-clean": "~0.5.0",
-	"istanbul": "~0.2.10",
-	"mocha": "~1.19.0",
-	"should": "~3.3.1"
-},
+  	"grunt": "~0.4.5",
+  	"grunt-mocha-test": "~0.10.2",
+  	"grunt-contrib-jshint": "~0.10.0",
+  	"grunt-contrib-clean": "~0.5.0",
+  	"istanbul": "~0.2.10",
+  	"mocha": "~1.19.0",
+  	"should": "~3.3.1"
+  },
   "engines": {
     "node": ">=0.10"
-  }
+  },
+  "keywords": [
+    "titanium",
+    "repl",
+    "appcelerator"
+  ]
 }
