@@ -1,0 +1,29 @@
+{
+	"browser": true,
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"expr": true,
+	"immed": true,
+	"indent": 4,
+	"latedef": "nofunc",
+	"newcap": true,
+	"noarg": true,
+	"nonew": true,
+	"undef": true,
+	"unused": false,
+	"trailing": true,
+	"loopfunc": true,
+	"proto": true,
+	"node": true,
+	"-W104": true,
+	"-W068": true,
+	"globals": {
+		"describe": false,
+		"it": false,
+		"before": false,
+		"beforeEach": false,
+		"after": false,
+		"afterEach": false
+	}
+}
