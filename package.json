@@ -14,6 +14,9 @@
     "url": "https://github.com/tonylukasavage"
   },
   "main": "index.js",
+  "bin": {
+    "triple": "./bin/triple"
+  },
   "scripts": {
     "test": "grunt test"
   },
@@ -41,6 +44,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "char-spinner": "^1.0.1",
+    "commander": "^2.2.0",
     "lodash": "^2.4.1",
     "titanium": "^3.2.3"
   }

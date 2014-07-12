@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+program.description('REPL for Titanium')
+	.version(require('../package.json').version)
+	.usage('[options]')
+
+program.parse(process.argv);
