@@ -1,13 +1,13 @@
 > **NOT YET IMPLEMENTED**
 
-# ti-repl [![Build Status](https://travis-ci.org/tonylukasavage/ti-repl.svg?branch=master)](https://travis-ci.org/tonylukasavage/ti-repl)
+# triple [![Build Status](https://travis-ci.org/tonylukasavage/triple.svg?branch=master)](https://travis-ci.org/tonylukasavage/ti-repl)
 
 REPL for Titanium
 
-## Install [![NPM version](https://badge.fury.io/js/ti-repl.svg)](http://badge.fury.io/js/ti-repl)
+## Install [![NPM version](https://badge.fury.io/js/triple.svg)](http://badge.fury.io/js/triple)
 
 ```bash
-$ npm install ti-repl
+$ npm install triple
 ```
 
 ## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)

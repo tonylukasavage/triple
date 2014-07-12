@@ -1,10 +1,10 @@
 {
-  "name": "ti-repl",
+  "name": "triple",
   "version": "0.0.0",
   "description": "REPL for Titanium",
-  "homepage": "git://github.com/tonylukasavage/ti-repl",
+  "homepage": "git://github.com/tonylukasavage/triple",
   "bugs": {
-    "url": "https://github.com/tonylukasavage/ti-repl/issues",
+    "url": "https://github.com/tonylukasavage/triple/issues",
     "email": "anthony.lukasavage@gmail.com"
   },
   "license": "MIT",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tonylukasavage/ti-repl.git"
+    "url": "git://github.com/tonylukasavage/triple.git"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

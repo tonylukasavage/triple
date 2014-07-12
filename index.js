@@ -1,1 +1,1 @@
-module.exports = require('./lib/ti-repl');
+module.exports = require('./lib/triple');

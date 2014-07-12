@@ -1,7 +1,7 @@
 var tiRepl = require('..'),
 	should = require('should');
 
-describe('ti-repl', function() {
+describe('triple', function() {
 
 	it('exists', function() {
 		should.exist(tiRepl);
