@@ -1,9 +1,20 @@
 #!/usr/bin/env node
 
-var program = require('commander');
+var chalk = require('chalk'),
+	error = chalk.bold.red,
+	program = require('commander'),
+	triple = require('..');
 
 program.description('REPL for Titanium')
 	.version(require('../package.json').version)
 	.usage('[options]')
 
 program.parse(process.argv);
+
+triple(function(err) {
+	if (err) {
+		console.error(error(err.toString()));
+	} else {
+		console.log('done.');
+	}
+});
