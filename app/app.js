@@ -1,23 +1,20 @@
+var constants = require('constants');
+
 var global = this;
 
 var socket = Ti.Network.Socket.createTCP({
 	host: 'localhost', port: 8124,
 	connected: function (e) {
-		//Ti.API.info('Socket opened!');
 		Ti.Stream.pump(e.socket, readCallback, 1024, true);
-		// Ti.Stream.write(socket, Ti.createBuffer({
-		// 	value: 'GET http://blog.example.com/index.html HTTP/1.1\r\n\r\n'
-		// }), writeCallback);
+        Ti.Stream.write(e.socket, Ti.createBuffer({
+            value: constants.CONNECT_MESSAGE
+        }), function(){});
 	},
 	error: function (e) {
-		Ti.API.info('Error (' + e.errorCode + '): ' + e.error);
+		Ti.API.error('Error (' + e.errorCode + '): ' + e.error);
 	},
 });
 socket.connect();
-
-function writeCallback(e) {
-  //Ti.API.info('Successfully wrote to socket.');
-}
 
 function readCallback(e) {
     if (e.bytesProcessed == -1)
