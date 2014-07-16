@@ -16,6 +16,6 @@ triple(program, function(err) {
 	if (err) {
 		console.error(error(err.toString()));
 	} else {
-		console.log('done.');
+		process.exit();
 	}
 });
