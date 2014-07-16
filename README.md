@@ -2,9 +2,9 @@
 
 [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium.
 
-## Platforms
+## Support
 
-Currently only tested on iOS simulator with Titanium SDK 3.2.3+. All other platforms supported by Appcelerator are planned.
+Currently only tested on Mac OSX against iOS simulator with Titanium SDK 3.2.3+. All other platforms supported by Appcelerator are planned.
 
 ## Install [![NPM version](https://badge.fury.io/js/triple.svg)](http://badge.fury.io/js/triple)
 
