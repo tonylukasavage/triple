@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			src: ['lib/**/*.js', 'test/**/*.js']
 		},
 		clean: {
-			src: ['tmp']
+			src: ['tmp','_tmp']
 		},
 		istanbul: {
 			src: ['test/**/*_test.js']
