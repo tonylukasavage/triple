@@ -24,7 +24,10 @@ function readCallback(e) {
 	try {
 		if(e.buffer) {
 			var received = e.buffer.toString();
-			eval.call(global, received);
+			var ret = eval.call(global, received);
+			Ti.Stream.write(socket, Ti.createBuffer({
+				value: JSON.stringify(ret, null, '  ') || 'undefined'
+			}), function(){});
 		} else {
 			Ti.API.error('socket error, try again [no buffer]');
 		}
