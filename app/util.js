@@ -58,62 +58,6 @@ exports.format = function(f) {
   return str;
 };
 
-
-// Mark that a method should not be used.
-// Returns a modified function which warns once by default.
-// If --no-deprecation is set, then it is a no-op.
-exports.deprecate = function(fn, msg) {
-  // Allow for deprecating things in the process of starting up.
-  if (isUndefined(global.process)) {
-    return function() {
-      return exports.deprecate(fn, msg).apply(this, arguments);
-    };
-  }
-
-  if (process.noDeprecation === true) {
-    return fn;
-  }
-
-  var warned = false;
-  function deprecated() {
-    if (!warned) {
-      if (process.throwDeprecation) {
-        throw new Error(msg);
-      } else if (process.traceDeprecation) {
-        console.trace(msg);
-      } else {
-        console.error(msg);
-      }
-      warned = true;
-    }
-    return fn.apply(this, arguments);
-  }
-
-  return deprecated;
-};
-
-
-var debugs = {};
-var debugEnviron;
-exports.debuglog = function(set) {
-  if (isUndefined(debugEnviron))
-    debugEnviron = process.env.NODE_DEBUG || '';
-  set = set.toUpperCase();
-  if (!debugs[set]) {
-    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
-      var pid = process.pid;
-      debugs[set] = function() {
-        var msg = exports.format.apply(exports, arguments);
-        console.error('%s %d: %s', set, pid, msg);
-      };
-    } else {
-      debugs[set] = function() {};
-    }
-  }
-  return debugs[set];
-};
-
-
 /**
  * Echos the value of a value. Trys to print the value out
  * in the best way possible given the different types.
@@ -484,7 +428,6 @@ function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
   return name + ': ' + str;
 }
 
-
 function reduceToSingleString(output, base, braces) {
   var length = output.reduce(function(prev, cur) {
     return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
@@ -587,56 +530,6 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-
-function pad(n) {
-  return n < 10 ? '0' + n.toString(10) : n.toString(10);
-}
-
-
-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-              'Oct', 'Nov', 'Dec'];
-
-// 26 Feb 16:19:34
-function timestamp() {
-  var d = new Date();
-  var time = [pad(d.getHours()),
-              pad(d.getMinutes()),
-              pad(d.getSeconds())].join(':');
-  return [d.getDate(), months[d.getMonth()], time].join(' ');
-}
-
-
-// log is just a thin wrapper to console.log that prepends a timestamp
-exports.log = function() {
-  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
-};
-
-
-/**
- * Inherit the prototype methods from one constructor into another.
- *
- * The Function.prototype.inherits from lang.js rewritten as a standalone
- * function (not on Function.prototype). NOTE: If this file is to be loaded
- * during bootstrapping this function needs to be rewritten using some native
- * functions as prototype setup using normal JavaScript does not work as
- * expected during bootstrapping (see mirror.js in r114903).
- *
- * @param {function} ctor Constructor function which needs to inherit the
- *     prototype.
- * @param {function} superCtor Constructor function to inherit prototype from.
- */
-exports.inherits = function(ctor, superCtor) {
-  ctor.super_ = superCtor;
-  ctor.prototype = Object.create(superCtor.prototype, {
-    constructor: {
-      value: ctor,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-};
-
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
   if (!add || !isObject(add)) return origin;
@@ -652,96 +545,3 @@ exports._extend = function(origin, add) {
 function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
-
-
-// Deprecated old stuff.
-
-exports.p = exports.deprecate(function() {
-  for (var i = 0, len = arguments.length; i < len; ++i) {
-    console.error(exports.inspect(arguments[i]));
-  }
-}, 'util.p: Use console.error() instead');
-
-
-exports.exec = exports.deprecate(function() {
-  return require('child_process').exec.apply(this, arguments);
-}, 'util.exec is now called `child_process.exec`.');
-
-
-exports.print = exports.deprecate(function() {
-  for (var i = 0, len = arguments.length; i < len; ++i) {
-    process.stdout.write(String(arguments[i]));
-  }
-}, 'util.print: Use console.log instead');
-
-
-exports.puts = exports.deprecate(function() {
-  for (var i = 0, len = arguments.length; i < len; ++i) {
-    process.stdout.write(arguments[i] + '\n');
-  }
-}, 'util.puts: Use console.log instead');
-
-
-exports.debug = exports.deprecate(function(x) {
-  process.stderr.write('DEBUG: ' + x + '\n');
-}, 'util.debug: Use console.error instead');
-
-
-exports.error = exports.deprecate(function(x) {
-  for (var i = 0, len = arguments.length; i < len; ++i) {
-    process.stderr.write(arguments[i] + '\n');
-  }
-}, 'util.error: Use console.error instead');
-
-
-exports.pump = exports.deprecate(function(readStream, writeStream, callback) {
-  var callbackCalled = false;
-
-  function call(a, b, c) {
-    if (callback && !callbackCalled) {
-      callback(a, b, c);
-      callbackCalled = true;
-    }
-  }
-
-  readStream.addListener('data', function(chunk) {
-    if (writeStream.write(chunk) === false) readStream.pause();
-  });
-
-  writeStream.addListener('drain', function() {
-    readStream.resume();
-  });
-
-  readStream.addListener('end', function() {
-    writeStream.end();
-  });
-
-  readStream.addListener('close', function() {
-    call();
-  });
-
-  readStream.addListener('error', function(err) {
-    writeStream.end();
-    call(err);
-  });
-
-  writeStream.addListener('error', function(err) {
-    readStream.destroy();
-    call(err);
-  });
-}, 'util.pump(): Use readableStream.pipe() instead');
-
-
-var uv;
-exports._errnoException = function(err, syscall, original) {
-  if (isUndefined(uv)) uv = process.binding('uv');
-  var errname = uv.errname(err);
-  var message = syscall + ' ' + errname;
-  if (original)
-    message += ' ' + original;
-  var e = new Error(message);
-  e.code = errname;
-  e.errno = errname;
-  e.syscall = syscall;
-  return e;
-};
