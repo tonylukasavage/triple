@@ -1,4 +1,5 @@
-var constants = require('constants');
+var constants = require('constants'),
+	util = require('util');
 
 var global = this;
 
@@ -23,10 +24,11 @@ function readCallback(e) {
 	}
 	try {
 		if(e.buffer) {
-			var received = e.buffer.toString();
-			var ret = eval.call(global, received);
+			var received = e.buffer.toString(),
+				ret = eval.call(global, received);
+
 			Ti.Stream.write(socket, Ti.createBuffer({
-				value: JSON.stringify(ret, null, '  ') || 'undefined'
+				value: util.inspect(ret, { colors: true })
 			}), function(){});
 		} else {
 			Ti.API.error('socket error, try again [no buffer]');
