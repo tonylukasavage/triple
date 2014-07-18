@@ -1,4 +1,5 @@
-var constants = require('constants');
+var constants = require('constants'),
+	util = require('util');
 
 function ReplClient(handler) {
 	var self = this;
@@ -12,7 +13,7 @@ function ReplClient(handler) {
 		error: function(err) {
 
 			// print error back to console
-			self.write(error('socket error: ' + err.toString()));
+			self.write(util.error('socket error: ' + err.toString()));
 
 			// close connection if still open
 			if (self.state === Ti.Network.Socket.CONNECTED) {
@@ -26,7 +27,7 @@ function ReplClient(handler) {
 			// pump all readable data from socket
 			Ti.Stream.pump(self.socket, function(e) {
 				if (e.bytesProcessed === -1 || !e.buffer) {
-					self.write(error('socket error: empty buffer, try again'));
+					self.write(util.error('socket error: empty buffer, try again'));
 				} else {
 					handler.call(self, e.buffer.toString());
 				}
@@ -44,10 +45,6 @@ ReplClient.prototype.write = function write(data) {
 
 ReplClient.prototype.connect = function connect() {
 	this.socket.connect();
-}
-
-function error(s) {
-	return '\x1B[31merror: ' + s + '\x1B[39m';
 }
 
 module.exports = ReplClient;
