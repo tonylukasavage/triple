@@ -21,3 +21,7 @@ $ grunt
 # create coverage report in ./coverage/index.html
 $ grunt coverage
 ```
+
+## Known Issues
+
+* Trying to inspect `this.Kroll` on iOS will cause a fatal error. This is due to the fact that `this.Kroll` is not a genuine Javascript object. It will be skipped if your inspect `this`, and it will crash the app if you try to inspect it directly.
