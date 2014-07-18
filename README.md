@@ -4,7 +4,13 @@
 
 ## Support
 
-Currently only tested on Mac OSX against iOS simulator with Titanium SDK 3.2.3+. All other platforms supported by Appcelerator are planned.
+The following is the only configuration for which this has been tested so far:
+
+* Mac OSX 10.9.4
+* iOS 7.1 + simulator
+* Titanium SDK 3.2.3+
+
+Support for all of Appcelerator's supported platforms is planned. Windows OS support is planned as well.
 
 ## Install [![NPM version](https://badge.fury.io/js/triple.svg)](http://badge.fury.io/js/triple)
 
