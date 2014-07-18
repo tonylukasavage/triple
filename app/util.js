@@ -177,6 +177,13 @@ function formatValue(ctx, value, recurseTimes) {
 
   // Look up the keys of the object.
   var keys = Object.keys(value);
+
+  // remove Kroll from list, crashes on iOS
+  var index = keys.indexOf('Kroll');
+  if (index !== -1) {
+    keys.splice(index, 1);
+  }
+
   var visibleKeys = arrayToHash(keys);
 
   if (ctx.showHidden) {
