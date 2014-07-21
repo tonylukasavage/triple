@@ -1,7 +1,5 @@
 ![triple image](http://cl.ly/image/3H2x3c2g1X0p/triple%20banner.png)
 
-# triple [![Build Status](https://travis-ci.org/tonylukasavage/triple.svg?branch=master)](https://travis-ci.org/tonylukasavage/ti-repl)
-
 [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium.
 
 ## Support
