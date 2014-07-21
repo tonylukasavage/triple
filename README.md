@@ -1,4 +1,4 @@
-![triple image](http://cl.ly/image/2g1V2N1h3m11/triple.jpg )
+![triple image](http://cl.ly/image/3H2x3c2g1X0p/triple%20banner.png)
 
 # triple [![Build Status](https://travis-ci.org/tonylukasavage/triple.svg?branch=master)](https://travis-ci.org/tonylukasavage/ti-repl)
 
