@@ -33,3 +33,7 @@ $ grunt coverage
 ### `this.Kroll`
 
 Trying to inspect `this.Kroll` on iOS will cause a fatal error. This is due to the fact that `this.Kroll` is not a genuine Javascript object. It will be skipped if your inspect `this`, and it will crash the app if you try to inspect it directly.
+
+## Credits
+
+* Triskelion logo is a slight derivation from the original work of [Marco Kaiser](http://commons.wikimedia.org/wiki/User:Marco_Kaiser), which is licensed under [Creative Commons CC-BY-SA-2.5](http://creativecommons.org/licenses/by-sa/2.5/).
