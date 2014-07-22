@@ -18,6 +18,15 @@ Support for all of Appcelerator's supported platforms is planned. Windows OS sup
 $ npm install -g triple
 ```
 
+## Usage
+
+```bash
+$ triple
+[creating app]
+[loading app]
+> alert('hello, world!');
+```
+
 ## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ```bash
