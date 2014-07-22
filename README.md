@@ -1,5 +1,7 @@
 ![triple image](http://cl.ly/image/3H2x3c2g1X0p/triple%20banner.png)
 
+![demo](http://cl.ly/image/2z3B0h3o3Z1d/triple.gif)
+
 [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium. Features include:
 
 * Full access to Titanium API
