@@ -6,7 +6,7 @@
 
 ## Features
 
-* Full access to Titanium API
+* Full access to [Titanium API](http://docs.appcelerator.com/titanium/latest/#!/api)
 * Command history (&uarr;,&darr;)
 * Multi-line statements
 * Color-coded return values, by type
