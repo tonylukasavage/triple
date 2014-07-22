@@ -12,16 +12,6 @@
 * Color-coded return values, by type
 * Much more coming (see [enhancements](https://github.com/tonylukasavage/triple/issues?labels=enhancement&milestone=&page=1&state=open))
 
-## Support
-
-The following is the only configuration for which this has been tested so far:
-
-* Mac OSX 10.9.4
-* iOS 7.1 + simulator
-* Titanium SDK 3.2.3+
-
-Support for all of Appcelerator's supported platforms is planned. Windows OS support is planned as well.
-
 ## Install [![NPM version](https://badge.fury.io/js/triple.svg)](http://badge.fury.io/js/triple)
 
 ```bash
@@ -37,22 +27,18 @@ $ triple
 > alert('hello, world!');
 ```
 
-## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+## Support
 
-```bash
-# run jshint and unit tests
-$ grunt
+The following is the only configuration for which this has been tested so far:
 
-# create coverage report in ./coverage/index.html
-$ grunt coverage
-```
+* Mac OSX 10.9.4
+* iOS 7.1 + simulator
+* Titanium SDK 3.2.3+
+
+Support for all of Appcelerator's supported platforms is planned. Windows OS support is planned as well.
 
 ## Known Issues
 
 ### `this.Kroll`
 
 Trying to inspect `this.Kroll` on iOS will cause a fatal error. This is due to the fact that `this.Kroll` is not a genuine Javascript object. It will be skipped if your inspect `this`, and it will crash the app if you try to inspect it directly.
-
-## Credits
-
-* Triskelion logo is a slight derivation from the original work of [Marco Kaiser](http://commons.wikimedia.org/wiki/User:Marco_Kaiser), which is licensed under [Creative Commons CC-BY-SA-2.5](http://creativecommons.org/licenses/by-sa/2.5/).
