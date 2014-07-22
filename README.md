@@ -1,4 +1,4 @@
-![triple image](http://cl.ly/image/3H2x3c2g1X0p/triple%20banner.png)
+![triple image](http://cl.ly/image/0K0Y3h2C1M1G/triple%20banner%20small.png)
 
 ![demo](http://cl.ly/image/2z3B0h3o3Z1d/triple.gif)
 
