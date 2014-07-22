@@ -1,6 +1,11 @@
 ![triple image](http://cl.ly/image/3H2x3c2g1X0p/triple%20banner.png)
 
-[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium.
+[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium. Features include:
+
+* Full access to Titanium API
+* Command history
+* Multi-line statements
+* Color-coded return values, by type
 
 ## Support
 
