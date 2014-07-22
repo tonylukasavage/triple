@@ -1,13 +1,16 @@
-![triple image](http://cl.ly/image/0K0Y3h2C1M1G/triple%20banner%20small.png)
+# triple
+
+[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium.
 
 ![demo](http://cl.ly/image/2z3B0h3o3Z1d/triple.gif)
 
-[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium. Features include:
+## Features
 
 * Full access to Titanium API
 * Command history
 * Multi-line statements
 * Color-coded return values, by type
+* Much more coming (see [enhancements](https://github.com/tonylukasavage/triple/issues?labels=enhancement&milestone=&page=1&state=open))
 
 ## Support
 
