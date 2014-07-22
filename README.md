@@ -7,7 +7,7 @@
 ## Features
 
 * Full access to Titanium API
-* Command history
+* Command history (&uarr;, &darr;)
 * Multi-line statements
 * Color-coded return values, by type
 * Much more coming (see [enhancements](https://github.com/tonylukasavage/triple/issues?labels=enhancement&milestone=&page=1&state=open))
