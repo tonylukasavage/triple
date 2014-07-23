@@ -27,6 +27,14 @@ $ triple
 > alert('hello, world!');
 ```
 
+### Triple commands
+
+Triple includes a few commands to control its operations. These must be preceded by the dot (.) to be recognized as commands.
+
+ * `.exit` -- exits the REPL
+ * `.save [option_file_name]` -- saves your history to ./triple.log or the specified file name. The history is _not_ cleared after a save.
+
+
 ## Support
 
 The following is the only configuration for which this has been tested so far:
