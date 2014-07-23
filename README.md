@@ -1,6 +1,6 @@
 # triple
 
-[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium.
+[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium. Inspired heavily by node.js's own [repl](http://nodejs.org/api/repl.html).
 
 ![demo](http://cl.ly/image/0a0z1F2N342H/triple3.gif)
 
