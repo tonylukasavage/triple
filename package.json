@@ -49,6 +49,7 @@
     "commander": "^2.2.0",
     "fs-extra": "^0.10.0",
     "lodash": "^2.4.1",
-    "titanium": "^3.2.3"
+    "titanium": "^3.2.3",
+    "request": "^2.39.0"
   }
 }
