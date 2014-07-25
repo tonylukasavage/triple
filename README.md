@@ -33,7 +33,7 @@ You can also load from the command line:
 $ triple http://bit.ly/1zc7Nvo
 [creating app]
 [launching app]
-var w = Ti.UI.createWindow();
+> var w = Ti.UI.createWindow();
 undefined
 > w.open();
 undefined
