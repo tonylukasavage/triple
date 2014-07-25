@@ -1,10 +1,10 @@
-var tiRepl = require('..'),
+var triple = require('..'),
 	should = require('should');
 
 describe('triple', function() {
 
 	it('exists', function() {
-		should.exist(tiRepl);
+		should.exist(triple);
 	});
 
 });
