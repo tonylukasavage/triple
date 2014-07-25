@@ -18,7 +18,10 @@
 	"node": true,
 	"-W104": true,
 	"-W068": true,
+	"-W084": true,
 	"globals": {
+		"Ti": false,
+		"Titanium": false,
 		"describe": false,
 		"it": false,
 		"before": false,
