@@ -32,12 +32,13 @@ You can also load from the command line:
 ```bash
 $ triple https://gist.githubusercontent.com/jhaynie/87c5c794203c13b6ac43/raw/f4a551a1580caad5d49282161d22182351028053/window.js
 [creating app]
-[loading app]
+[launching app]
 var w = Ti.UI.createWindow();
-w.open();
-w.backgroundColor = 'red';
-
-> 'red'
+undefined
+> w.open();
+undefined
+> w.backgroundColor = 'red';
+'red'
 ```
 
 How about loading from within the repl?
