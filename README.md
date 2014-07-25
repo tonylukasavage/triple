@@ -27,7 +27,7 @@ $ triple
 > alert('hello, world!');
 ```
 
-You can also load from the command line:
+You can also load in Javascript files from the command line, either locally or from a URL:
 
 ```bash
 $ triple http://bit.ly/1zc7Nvo
@@ -39,6 +39,10 @@ undefined
 undefined
 > w.backgroundColor = 'red';
 'red'
+```
+
+```bash
+$ triple ./app.js
 ```
 
 How about loading from within the repl?
