@@ -30,7 +30,7 @@ $ triple
 You can also load from the command line:
 
 ```bash
-$ triple https://gist.githubusercontent.com/jhaynie/87c5c794203c13b6ac43/raw/f4a551a1580caad5d49282161d22182351028053/window.js
+$ triple http://bit.ly/1zc7Nvo
 [creating app]
 [launching app]
 var w = Ti.UI.createWindow();
@@ -44,19 +44,23 @@ undefined
 How about loading from within the repl?
 
 ```bash
-> .load https://gist.githubusercontent.com/jhaynie/87c5c794203c13b6ac43/raw/f4a551a1580caad5d49282161d22182351028053/window.js
+$ triple
+[launching app]
+> .load http://bit.ly/1zc7Nvo
 ```
 
 You can also load with a delay which will load each command line-by-line in the console so you can see the return value of each line of code.
 
 ```bash
-> .load https://gist.githubusercontent.com/jhaynie/87c5c794203c13b6ac43/raw/f4a551a1580caad5d49282161d22182351028053/window.js 2000
+$ triple http://bit.ly/1zc7Nvo 2000
 ```
 
-Or a delay from the command line:
+Or a delay from within the REPL:
 
 ```bash
-$ triple https://gist.githubusercontent.com/jhaynie/87c5c794203c13b6ac43/raw/f4a551a1580caad5d49282161d22182351028053/window.js 2000
+$ triple
+[launching app]
+> .load http://bit.ly/1zc7Nvo 2000
 ```
 
 ## Support
