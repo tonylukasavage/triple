@@ -41,6 +41,15 @@ You can also load with a delay which will load each command line-by-line in the 
 ```bash
 $ triple http://bit.ly/1zc7Nvo 2000
 ```
+
+### Native Modules
+
+Titanium native modules must be loaded when you initiate triple. Modules must be installed globally for triple to be able to find them.
+
+```bash
+$ triple --module ti.paint,another.module
+```
+
 ### Triple commands
 
 Triple includes a few commands to control its operations. These must be preceded by the dot (.) to be recognized as commands.
@@ -50,7 +59,7 @@ Triple includes a few commands to control its operations. These must be preceded
  * `.save filespec` -- saves your history
  * `.clear` -- clear memory and reset the simulator/emulator
 
-#### .load 
+#### .load
 
 Load a series of Titanium JavaScript statements from a local file or URL:
 
