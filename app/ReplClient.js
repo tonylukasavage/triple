@@ -7,7 +7,7 @@ function ReplClient(handler) {
 	// create Titanium socket for client
 	self.socket = Ti.Network.Socket.createTCP({
 		host: constants.HOST,
-		port: constants.PORT,
+		port: Ti.Platform.osname === 'android' ? constants.PORT.ANDROID : constants.PORT.IOS,
 
 		// handle socket errors
 		error: function(err) {
