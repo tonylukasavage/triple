@@ -29,5 +29,9 @@ Ti.App.addEventListener('app:return', function(e) {
 	client.write(util.inspect(e.value, { colors: true }));
 });
 
+Ti.App.addEventListener('app:error', function(e) {
+	client.write(util.error(e.value));
+});
+
 // connect to server
 client.connect();
