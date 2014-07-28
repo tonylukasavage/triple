@@ -1,7 +1,7 @@
 ### unreleased, v0.2.0
 
 * Support triple dot commands
-	* `.add` arbtrary file to app ([#41](https://github.com/tonylukasavage/triple/issues/41))
+	* `.add` arbitrary file(s) to app ([#41](https://github.com/tonylukasavage/triple/issues/41))
 	* `.break` a multi-line statement ([#16](https://github.com/tonylukasavage/triple/issues/16))
 	* `.clear` the current execution context ([#19](https://github.com/tonylukasavage/triple/issues/19))
 	* `.exit` repl ([#21](https://github.com/tonylukasavage/triple/issues/21))
