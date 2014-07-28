@@ -10,7 +10,6 @@ program.description('REPL for Titanium')
 	.usage('[options]')
 	.option('-a, --android [value]', 'Launch Android emulator')
 	.option('-i, --ios [value]', 'Launch iOS simulator')
-	.option('-v, --verbose', 'Enable verbose output')
 	.option('-m, --module <ids>', 'Add native module(s) to REPL VM', function list(val) {
 		return val.split(',');
 	})
