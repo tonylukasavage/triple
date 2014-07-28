@@ -33,8 +33,10 @@ function ReplClient(handler) {
 				}
 			}, 1024, true);
 
-			// tell server we're ready
-			self.write(constants.CONNECT_MESSAGE);
+			// tell server we're ready by sending back the resources directory
+			self.write(JSON.stringify({
+				resourcesDir: Ti.Filesystem.resourcesDirectory
+			}));
 		}
 	});
 }
