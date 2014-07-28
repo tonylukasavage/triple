@@ -8,10 +8,12 @@ var chalk = require('chalk'),
 program.description('REPL for Titanium')
 	.version(require('../package.json').version)
 	.usage('[options]')
+	.option('-a, --android [value]', 'Launch Android emulator')
+	.option('-i, --ios [value]', 'Launch iOS simulator')
 	.option('-m, --module <ids>', 'Add native module(s) to REPL VM', function list(val) {
 		return val.split(',');
 	})
-	.option('-v, --verbose', 'Enable verbose output')
+	.option('-v, --verbose', 'Enable verbose output');
 
 program.parse(process.argv);
 
