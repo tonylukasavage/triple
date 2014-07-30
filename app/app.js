@@ -16,21 +16,24 @@ var client = new ReplClient(function(code) {
 	if (code === constants.CLEAR_MESSAGE) {
 		resetContext();
 	} else {
-		try {
-			Ti.App.fireEvent('app:eval', { code: code });
-		} catch (e) {
-			this.write(util.error(e));
-		}
+		Ti.App.fireEvent('app:eval', { code: code });
 	}
 });
 
 // Listen for return events
 Ti.App.addEventListener('app:return', function(e) {
-	client.write(util.inspect(e.value, { colors: true }));
+	client.write(JSON.stringify({
+		type: 'return',
+		data: util.inspect(e.value, { colors: true })
+	}));
 });
 
 Ti.App.addEventListener('app:error', function(e) {
-	client.write(util.error(e.value));
+	client.write(JSON.stringify({
+		type: 'error',
+		source: 'eval',
+		data: util.error(e.value)
+	}));
 });
 
 // connect to server
