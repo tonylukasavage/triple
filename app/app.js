@@ -20,7 +20,6 @@ var client = new ReplClient(function(code) {
 	}
 });
 
-// Listen for return events
 Ti.App.addEventListener('app:return', function(e) {
 	client.write(JSON.stringify({
 		type: 'return',
@@ -29,11 +28,17 @@ Ti.App.addEventListener('app:return', function(e) {
 });
 
 Ti.App.addEventListener('app:error', function(e) {
-	client.write(JSON.stringify({
-		type: 'error',
-		source: 'eval',
-		data: util.error(e.value)
-	}));
+	var ret = {
+		code: e.code,
+		data: util.error(e.value),
+		type: 'error'
+	};
+
+	if (match = e.value.match(/^Couldn't find module:\s*(.+)$/)) {
+		ret.moduleId = match[1].trim();
+	}
+
+	client.write(JSON.stringify(ret));
 });
 
 // connect to server
