@@ -22,8 +22,8 @@ var client = new ReplClient(function(code) {
 
 Ti.App.addEventListener('app:return', function(e) {
 	client.write(JSON.stringify({
-		type: 'return',
-		data: util.inspect(e.value, { colors: true })
+		data: util.inspect(e.value, { colors: true }),
+		type: 'return'
 	}));
 });
 
@@ -33,11 +33,6 @@ Ti.App.addEventListener('app:error', function(e) {
 		data: util.error(e.value),
 		type: 'error'
 	};
-
-	if (match = e.value.match(/^Couldn't find module:\s*(.+)$/)) {
-		ret.moduleId = match[1].trim();
-	}
-
 	client.write(JSON.stringify(ret));
 });
 
