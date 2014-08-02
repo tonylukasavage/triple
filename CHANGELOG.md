@@ -8,6 +8,7 @@
 	* `.load` Javascript a file into the repl ([#23](https://github.com/tonylukasavage/triple/issues/23))
 	* `.save` the history of the current repl to a file ([#20](https://github.com/tonylukasavage/triple/issues/20))
 * Tab completion for Titanium namespace ([#8](https://github.com/tonylukasavage/triple/issues/8))
+* `require()` commonjs files from filesystem at runtime ([#42](https://github.com/tonylukasavage/triple/issues/42))
 * Add native modules to app at creation time ([#39](https://github.com/tonylukasavage/triple/pull/39))
 * iOS simulator won't steal focus from terminal, requires TiSDK 3.3.1+ ([#25](https://github.com/tonylukasavage/triple/issues/25))
 
