@@ -55,7 +55,7 @@ $ npm install -g triple
 
 ## triple commands
 
-Triple includes a few commands to control its operations. These must be preceded by the dot (.) to be recognized as commands.
+triple includes a few commands to control its operations. These must be preceded by the dot (.) to be recognized as commands.
 
 ### .add [file ...]
 
