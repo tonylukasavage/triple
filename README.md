@@ -23,26 +23,34 @@ $ npm install -g triple
 
 ## Usage
 
-```bash
-$ triple
-[creating app]
-[loading app]
-> alert('hello, world!');
 ```
+≫ triple --help
 
-You can also load in Javascript files from the command line, either locally or from a URL:
+  Usage: triple [options] [file [delay]]
 
-```bash
-$ triple ./app.js
-```
+  Options:
 
-```bash
-$ triple http://bit.ly/1zc7Nvo
-```
-You can also load with a delay which will load each command line-by-line in the console so you can see the return value of each line of code. The delay is specified in milliseconds.
+    -h, --help          output usage information
+    -V, --version       output the version number
+    -m, --module <ids>  Add native module(s) to REPL
+    -v, --verbose       Enable verbose output
 
-```bash
-$ triple http://bit.ly/1zc7Nvo 2000
+  Examples:
+
+    basic REPL
+    $ triple
+    [creating app]
+    [loading app]
+    > alert('hello, world!');
+
+    load by file or url, with optional delay between lines
+    $ triple /path/to/file.js
+    $ triple http://bit.ly/1zc7Nvo
+    $ triple /path/to/file.js 2000
+
+    add native module(s) to REPL by id
+    $ triple --module ti.paint
+    $ triple --module some.module,another.module
 ```
 
 ### Native Modules
