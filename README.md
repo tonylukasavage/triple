@@ -6,8 +6,11 @@
 
 ## Features
 
-* Full access to [Titanium API](http://docs.appcelerator.com/titanium/latest/#!/api)
+* Full access to [Titanium API](http://docs.appcelerator.com/titanium/latest/#!/api), including tab completion for Titanium namespaces
 * Command history (&uarr;,&darr;)
+* Save and load repl sessions
+* Add files and native Titanium modules to repl
+* `require()` commonjs modules at runtime straight from the filesystem
 * Multi-line statements
 * Color-coded return values, by type
 * Much more coming (see [enhancements](https://github.com/tonylukasavage/triple/issues?labels=enhancement&milestone=&page=1&state=open))
