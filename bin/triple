@@ -1,23 +1,45 @@
 #!/usr/bin/env node
 
 var chalk = require('chalk'),
-	error = chalk.bold.red,
+	logger = require('../lib/logger'),
 	program = require('commander'),
 	triple = require('..');
 
+var under = chalk.underline;
+
 program.description('REPL for Titanium')
 	.version(require('../package.json').version)
-	.usage('[options]')
-	.option('-m, --module <ids>', 'Add native module(s) to REPL VM', function list(val) {
+	.usage('[options] [' + under('file') + ' [' + under('delay') + ']]')
+	.option('-m, --module <ids>', 'Add native module(s) to REPL', function list(val) {
 		return val.split(',');
 	})
 	.option('-v, --verbose', 'Enable verbose output')
+
+program.on('--help', function(){
+	console.log('  Examples:');
+	console.log('');
+	console.log('    ' + under('basic REPL'));
+	console.log('    $ triple');
+	console.log('    [creating app]');
+	console.log('    [loading app]');
+	console.log('    > alert(\'hello, world!\');');
+	console.log('');
+	console.log('    ' + under('load by file or url, with optional delay between lines'));
+	console.log('    $ triple /path/to/file.js');
+	console.log('    $ triple http://bit.ly/1zc7Nvo');
+	console.log('    $ triple /path/to/file.js 2000');
+	console.log('');
+	console.log('    ' + under('add native module(s) to REPL by id'));
+	console.log('    $ triple --module ti.paint');
+	console.log('    $ triple --module some.module,another.module');
+	console.log('');
+});
 
 program.parse(process.argv);
 
 triple(program, function(err) {
 	if (err) {
-		console.error(error(err.toString()));
+		logger.error(err.toString());
 	} else {
 		process.exit();
 	}
