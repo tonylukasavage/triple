@@ -37,80 +37,94 @@ $ npm install -g triple
 
   Examples:
 
-    basic REPL
+    # basic REPL
     $ triple
     [creating app]
     [loading app]
     > alert('hello, world!');
 
-    load by file or url, with optional delay between lines
+    # load by file or url, with optional delay between lines
     $ triple /path/to/file.js
     $ triple http://bit.ly/1zc7Nvo
     $ triple /path/to/file.js 2000
 
-    add native module(s) to REPL by id
+    # add native module(s) to REPL by id
     $ triple --module ti.paint
     $ triple --module some.module,another.module
 ```
 
-### Native Modules
-
-Titanium native modules must be loaded when you initiate triple. Modules must be installed globally for triple to be able to find them.
-
-```bash
-$ triple --module ti.paint,another.module
-```
-
-### Triple commands
+## triple commands
 
 Triple includes a few commands to control its operations. These must be preceded by the dot (.) to be recognized as commands.
 
-* `.add` - add a file to the REPL at runtime
-* `.break` - abort a multi-line statement
-* `.clear` - creates a new execution context for your REPL
-* `.exit` - exits the REPL
-* `.load` - load a JavaScript file from local path or URL
-* `.save` - saves your history
+### .add [file ...]
 
-#### .load
-
-Load a series of Titanium JavaScript statements from a local file or URL:
-
-```
-.load filespec [delay]
-```
-
-where `filespec` is a local path or URL and `delay` is an optional delay (milliseconds) to add between the execution of each command.
-
-Example:
+Add file(s) to REPL at runtime.
 
 ```bash
 $ triple
-[creating app]
-[loading app]
-> .load myDemo.js 1000
+> .add /path/to/image.png
+> var image = Ti.UI.createImageView({image:'image.png'});
 ```
 
-#### .save
+### .break
 
-Save your history to a file:
-
-```
-.save filespec
-```
-where `filespec` is a path and file name. If the path is omitted, the current directory is assumed. For example:
+Abort a multi-line statement.
 
 ```bash
 $ triple
-[creating app]
-[loading app]
-> var w = Ti.UI.createWindow();
+> for (var i = 0; i < 100; i++) {
+... // i want to stop this statement
+... .break
+>
+```
+
+### .clear
+
+Create a new execution context for the current REPL.
+
+```bash
+$ triple
+> var foo = 123;
 undefined
-> w.open();
+> foo
+123
+> .clear
+> foo
+ReferenceError: Can't find variable: foo
+>
+```
+
+### .exit
+
+Exits the REPL.
+
+```bash
+$ triple
+> .exit
+$
+```
+
+### .load <file> [delay]
+
+Load a local or remote Javascript file line by line in to the REPL. A `delay` between each line of code's execution can be specified in milliseconds.
+
+```bash
+$ triple
+> .load ./app.js
+> .load http://bit.ly/1zc7Nvo
+> .load http://bit.ly/1zc7Nvo 2000
+```
+
+### .save <file>
+
+Saves the current REPL session to a file. This file can be loaded in triple later with `.load`.
+
+```bash
+$ triple
+> Ti.UI.createWindow({backgroundColor:'#a00'}).open();
 undefined
-> w.backgroundColor = 'red';
-'red'
-> .save ./myTripleLog.js
+> .save ./test.js
 ```
 
 ## Support
