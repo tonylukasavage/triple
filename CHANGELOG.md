@@ -1,4 +1,4 @@
-### unreleased, v0.2.0
+### 2014.08.02, v0.2.0
 
 * Support triple dot commands
 	* `.add` arbitrary file(s) to app ([#41](https://github.com/tonylukasavage/triple/issues/41))
