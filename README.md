@@ -8,8 +8,8 @@
 
 * Full access to [Titanium API](http://docs.appcelerator.com/titanium/latest/#!/api), including tab completion for Titanium namespaces
 * Command history (&uarr;,&darr;)
-* Save and load repl sessions
-* Add files and native Titanium modules to repl
+* Save and load REPL sessions
+* Add files and native Titanium modules to REPL
 * `require()` commonjs modules at runtime straight from the filesystem
 * Multi-line statements
 * Color-coded return values, by type
