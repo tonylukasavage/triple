@@ -36,7 +36,7 @@ $ triple ./app.js
 ```bash
 $ triple http://bit.ly/1zc7Nvo
 ```
-You can also load with a delay which will load each command line-by-line in the console so you can see the return value of each line of code.
+You can also load with a delay which will load each command line-by-line in the console so you can see the return value of each line of code. The delay is specified in milliseconds.
 
 ```bash
 $ triple http://bit.ly/1zc7Nvo 2000
@@ -54,10 +54,12 @@ $ triple --module ti.paint,another.module
 
 Triple includes a few commands to control its operations. These must be preceded by the dot (.) to be recognized as commands.
 
- * `.exit` -- exits the REPL
- * `.load` -- load a JavaScript file from local path or URL
- * `.save filespec` -- saves your history
- * `.clear` -- clear memory and reset the simulator/emulator
+* `.add` - add a file to the REPL at runtime
+* `.break` - abort a multi-line statement
+* `.clear` - creates a new execution context for your REPL
+* `.exit` - exits the REPL
+* `.load` - load a JavaScript file from local path or URL
+* `.save` - saves your history
 
 #### .load
 
