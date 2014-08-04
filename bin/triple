@@ -31,6 +31,11 @@ program.on('--help', function(){
 	console.log('    $ triple /path/to/file.js watch');
 	console.log('    $ triple /path/to/file.js watch 2000');
 	console.log('');
+	console.log('    ' + under('load by folder, triple automtically runs app.js in the folder'));
+	console.log('    $ triple /path/to 2000');
+	console.log('    $ triple /path/to watch');
+	console.log('    $ triple /path/to watch 2000');
+	console.log('');
 	console.log('    ' + under('add native module(s) to REPL by id'));
 	console.log('    $ triple --module ti.paint');
 	console.log('    $ triple --module some.module,another.module');
