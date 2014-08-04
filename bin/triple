@@ -24,10 +24,17 @@ program.on('--help', function(){
 	console.log('    [loading app]');
 	console.log('    > alert(\'hello, world!\');');
 	console.log('');
-	console.log('    ' + under('load by file or url, with optional delay between lines'));
+	console.log('    ' + under('load by file or url, with optional delay between lines and auto-restart on filechange'));
 	console.log('    $ triple /path/to/file.js');
 	console.log('    $ triple http://bit.ly/1zc7Nvo');
 	console.log('    $ triple /path/to/file.js 2000');
+	console.log('    $ triple /path/to/file.js watch');
+	console.log('    $ triple /path/to/file.js watch 2000');
+	console.log('');
+	console.log('    ' + under('load by folder, triple automtically runs app.js in the folder'));
+	console.log('    $ triple /path/to 2000');
+	console.log('    $ triple /path/to watch');
+	console.log('    $ triple /path/to watch 2000');
 	console.log('');
 	console.log('    ' + under('add native module(s) to REPL by id'));
 	console.log('    $ triple --module ti.paint');
