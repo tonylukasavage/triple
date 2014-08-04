@@ -29,6 +29,10 @@ program.on('--help', function(){
 	console.log('    $ triple http://bit.ly/1zc7Nvo');
 	console.log('    $ triple /path/to/file.js 2000');
 	console.log('');
+	console.log('    ' + under('load by folder, triple automtically runs app.js in the folder, with optional delay'));	
+	console.log('    $ triple /path/to');
+	console.log('    $ triple /path/to 2000');
+	console.log('');
 	console.log('    ' + under('add native module(s) to REPL by id'));
 	console.log('    $ triple --module ti.paint');
 	console.log('    $ triple --module some.module,another.module');
