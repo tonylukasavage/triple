@@ -1,3 +1,9 @@
+### 2014.09.22, v0.2.1
+
+* Configurable iOS version with `-I, --ios-version`
+* Better error messaging
+* Fixed bug where build error doesn't abort triple
+
 ### 2014.08.02, v0.2.0
 
 * Support triple dot commands
