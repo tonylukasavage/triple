@@ -13,6 +13,7 @@ program.description('REPL for Titanium')
 	.option('-m, --module <ids>', 'Add native module(s) to REPL', function list(val) {
 		return val.split(',');
 	})
+	.option('-I, --ios-version <iosVersion>', 'select the ios version to use')
 	.option('-v, --verbose', 'Enable verbose output')
 
 program.on('--help', function(){
