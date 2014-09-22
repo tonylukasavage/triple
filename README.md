@@ -24,31 +24,32 @@ $ npm install -g triple
 ## Usage
 
 ```
-≫ triple --help
+≫ triple -h
 
   Usage: triple [options] [file [delay]]
 
   Options:
 
-    -h, --help          output usage information
-    -V, --version       output the version number
-    -m, --module <ids>  Add native module(s) to REPL
-    -v, --verbose       Enable verbose output
+    -h, --help                      output usage information
+    -V, --version                   output the version number
+    -m, --module <ids>              Add native module(s) to REPL
+    -I, --ios-version <iosVersion>  select the ios version to use
+    -v, --verbose                   Enable verbose output
 
   Examples:
 
-    # basic REPL
+    basic REPL
     $ triple
     [creating app]
     [loading app]
     > alert('hello, world!');
 
-    # load by file or url, with optional delay between lines
+    load by file or url, with optional delay between lines
     $ triple /path/to/file.js
     $ triple http://bit.ly/1zc7Nvo
     $ triple /path/to/file.js 2000
 
-    # add native module(s) to REPL by id
+    add native module(s) to REPL by id
     $ triple --module ti.paint
     $ triple --module some.module,another.module
 ```
