@@ -1,3 +1,8 @@
+### TBD, v0.2.2
+
+* Add .help triple command
+* Better documentation for triple commands
+
 ### 2014.09.22, v0.2.1
 
 * Configurable iOS version with `-I, --ios-version`
