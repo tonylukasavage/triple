@@ -4,7 +4,8 @@ var chalk = require('chalk'),
 	format = require('util').format,
 	logger = require('../lib/logger'),
 	program = require('commander'),
-	triple = require('..');
+	triple = require('..'),
+	util = require('../lib/util');
 
 var $u = chalk.underline,
 	$c = chalk.cyan;
@@ -40,24 +41,8 @@ program.on('--help', function(){
 	console.log('');
 	console.log('    triple commands are executed in the REPL. All are prefixed with a ".".');
 	console.log('');
-	console.log(format('    %s %s %s', $c('.add'), $u('file'), $u('...')));
-	console.log('      Add file(s) to the app');
-	console.log('');
-	console.log(format('    %s', $c('.break')));
-	console.log('      Abort the current multi-line statement');
-	console.log('');
-	console.log(format('    %s', $c('.clear')));
-	console.log('      Create a new execution context for the current REPL');
-	console.log('');
-	console.log(format('    %s', $c('.exit')));
-	console.log('      Exit triple');
-	console.log('');
-	console.log(format('    %s <%s> [delay]', $c('.load'), $u('file')));
-	console.log('      Load a local or remote JS file into the REPL, with optional delay in ms');
-	console.log('');
-	console.log(format('    %s <%s>', $c('.save'), $u('file')));
-	console.log('      Save the current REPL session JS to a file');
-	console.log('');
+
+	util.printCommands();
 });
 
 program.parse(process.argv);

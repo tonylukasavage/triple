@@ -106,6 +106,10 @@ $ triple
 $
 ```
 
+### .help
+
+Shows command help in the REPL.
+
 ### .load <file> [delay]
 
 Load a local or remote Javascript file line by line in to the REPL. A `delay` between each line of code's execution can be specified in milliseconds. If `<file>` is a directory, triple will attempt to load `app.js` then `index.js` from the directory.
