@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 
 var chalk = require('chalk'),
+	format = require('util').format,
 	logger = require('../lib/logger'),
 	program = require('commander'),
 	triple = require('..');
 
-var under = chalk.underline;
+var $u = chalk.underline,
+	$c = chalk.cyan;
 
 program.description('REPL for Titanium')
 	.version(require('../package.json').version)
-	.usage('[options] [' + under('file') + ' [' + under('delay') + ']]')
+	.usage(format('[options] [%s [%s]]', $u('file'), $u('delay')))
 	.option('-m, --module <ids>', 'Add native module(s) to REPL', function list(val) {
 		return val.split(',');
 	})
@@ -19,20 +21,42 @@ program.description('REPL for Titanium')
 program.on('--help', function(){
 	console.log('  Examples:');
 	console.log('');
-	console.log('    ' + under('basic REPL'));
+	console.log('    ' + $u('basic REPL'));
 	console.log('    $ triple');
 	console.log('    [creating app]');
 	console.log('    [loading app]');
 	console.log('    > alert(\'hello, world!\');');
 	console.log('');
-	console.log('    ' + under('load by file or url, with optional delay between lines'));
+	console.log('    ' + $u('load by file or url, with optional delay between lines'));
 	console.log('    $ triple /path/to/file.js');
 	console.log('    $ triple http://bit.ly/1zc7Nvo');
 	console.log('    $ triple /path/to/file.js 2000');
 	console.log('');
-	console.log('    ' + under('add native module(s) to REPL by id'));
+	console.log('    ' + $u('add native module(s) to REPL by id'));
 	console.log('    $ triple --module ti.paint');
 	console.log('    $ triple --module some.module,another.module');
+	console.log('');
+	console.log('  Commands:');
+	console.log('');
+	console.log('    triple commands are executed in the REPL. All are prefixed with a ".".');
+	console.log('');
+	console.log(format('    %s %s %s', $c('.add'), $u('file'), $u('...')));
+	console.log('      Add file(s) to the app');
+	console.log('');
+	console.log(format('    %s', $c('.break')));
+	console.log('      Abort the current multi-line statement');
+	console.log('');
+	console.log(format('    %s', $c('.clear')));
+	console.log('      Create a new execution context for the current REPL');
+	console.log('');
+	console.log(format('    %s', $c('.exit')));
+	console.log('      Exit triple');
+	console.log('');
+	console.log(format('    %s <%s> [delay]', $c('.load'), $u('file')));
+	console.log('      Load a local or remote JS file into the REPL, with optional delay in ms');
+	console.log('');
+	console.log(format('    %s <%s>', $c('.save'), $u('file')));
+	console.log('      Save the current REPL session JS to a file');
 	console.log('');
 });
 
