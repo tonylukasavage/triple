@@ -1,3 +1,7 @@
+### 2014.10.17 (but later), v0.2.3
+
+* load single JS files via `triple ./path/to/file.js` or `> .load ./path/to/file.js`
+
 ### 2014.10.17, v0.2.2
 
 * No longer default to iOS 7.1
