@@ -1,5 +1,6 @@
-### TBD, v0.2.2
+### 2014.10.17, v0.2.2
 
+* No longer default to iOS 7.1
 * Add .help triple command
 * Better documentation for triple commands
 
