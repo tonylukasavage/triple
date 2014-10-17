@@ -136,8 +136,8 @@ undefined
 
 The following is the only configuration for which this has been tested so far:
 
-* Mac OSX 10.9.4
-* iOS 7.1 + simulator
+* Mac OSX 10.9.4+
+* iOS 7.1+ simulator
 * Titanium SDK 3.2.3+
 
 Support for all of Appcelerator's supported platforms is planned. Windows OS support is planned as well.
@@ -147,4 +147,4 @@ Support for all of Appcelerator's supported platforms is planned. Windows OS sup
 Aside from the [issues](https://github.com/tonylukasavage/triple/issues) in this repo, here's some other known issues with Titanium that you might encounter when using triple.
 
 * \[[TIMOB-17449](https://jira.appcelerator.org/browse/TIMOB-17449)\] - iOS: this.Kroll cannot be inspected, and throws errors when you try
-* \[[TIMOB-17448](https://jira.appcelerator.org/browse/TIMOB-17448)\] - iOS: error when commonjs module exports certain types (anything other than function, object, or string). _**Fixed in Titanium 3.4.0**_.
+* \[[~~TIMOB-17448~~](https://jira.appcelerator.org/browse/TIMOB-17448)\] - iOS: error when commonjs module exports certain types (anything other than function, object, or string). _**Fixed in Titanium 3.4.0**_.
