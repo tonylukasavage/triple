@@ -1,6 +1,7 @@
 ### 2014.10.17 (but later), v0.2.3
 
-* Fix automcomplete failure crash
+* Fix crash when copy/pasting multiple lines into REPL ([#57](https://github.com/tonylukasavage/triple/issues/57))
+* Fix automcomplete failure crash ([#59](https://github.com/tonylukasavage/triple/issues/59))
 * Load single JS files via `triple ./path/to/file.js` or `> .load ./path/to/file.js`
 
 ### 2014.10.17, v0.2.2
