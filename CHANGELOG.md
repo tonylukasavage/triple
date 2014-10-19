@@ -1,4 +1,4 @@
-### 2014.10.17 (but later), v0.2.3
+### 2014.10.19, v0.2.3
 
 * Fix crash when copy/pasting multiple lines into REPL ([#57](https://github.com/tonylukasavage/triple/issues/57))
 * Fix automcomplete failure crash ([#59](https://github.com/tonylukasavage/triple/issues/59))
