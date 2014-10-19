@@ -17,6 +17,7 @@ program.description('REPL for Titanium')
 	.option('-m, --module <ids>', 'Add native module(s) to REPL', function list(val) {
 		return val.split(',');
 	})
+	.option('-p, --platform <platform>', 'mobile platform for triple')
 	.option('-v, --verbose', 'Enable verbose output')
 
 program.on('--help', function(){
