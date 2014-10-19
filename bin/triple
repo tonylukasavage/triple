@@ -13,10 +13,10 @@ var $u = chalk.underline,
 program.description('REPL for Titanium')
 	.version(require('../package.json').version)
 	.usage(format('[options] [%s [%s]]', $u('file'), $u('delay')))
+	.option('-I, --ios-version <iosVersion>', 'select the ios version to use')
 	.option('-m, --module <ids>', 'Add native module(s) to REPL', function list(val) {
 		return val.split(',');
 	})
-	.option('-I, --ios-version <iosVersion>', 'select the ios version to use')
 	.option('-v, --verbose', 'Enable verbose output')
 
 program.on('--help', function(){
