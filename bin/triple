@@ -50,7 +50,7 @@ program.parse(process.argv);
 
 triple(program, function(err) {
 	if (err) {
-		logger.error(err.toString());
+		logger.error('ERROR: ' + err.message || err.toString());
 		process.exit(1);
 	} else {
 		process.exit();
