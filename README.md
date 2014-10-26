@@ -142,6 +142,10 @@ The following is the only configuration for which this has been tested so far:
 
 Support for all of Appcelerator's supported platforms is planned. Windows OS support is planned as well.
 
+### Android support
+
+Basic Android support is available (`--plaform android`). Currently all of triple's features are being implemented and/or tested against Android. Check issue[#10](https://github.com/tonylukasavage/triple/issues/10) for details.
+
 ## Known Issues
 
 Aside from the [issues](https://github.com/tonylukasavage/triple/issues) in this repo, here's some other known issues with Titanium that you might encounter when using triple.
