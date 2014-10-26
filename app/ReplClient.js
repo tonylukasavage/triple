@@ -36,13 +36,15 @@ function ReplClient(handler) {
 			// tell server we're ready by sending back the resources directory
 			self.write(JSON.stringify({
 				resourcesDir: Ti.Filesystem.resourcesDirectory
-			}));
+			}), { eom: false });
 		}
 	});
 }
 
-ReplClient.prototype.write = function write(data) {
-	Ti.Stream.write(this.socket, Ti.createBuffer({ value: data }), function(){});
+ReplClient.prototype.write = function write(data, opts) {
+	opts = opts || {};
+	var eom = opts.eom === false ? '' : constants.EOM;
+	Ti.Stream.write(this.socket, Ti.createBuffer({ value: data + eom }), function(){});
 };
 
 ReplClient.prototype.connect = function connect() {
