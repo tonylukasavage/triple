@@ -4,9 +4,19 @@ var constants = require('constants'),
 
 // create a new execution context with createWindow's url property
 var current;
+
+function returnReset() {
+	client.write(JSON.stringify({
+		data: '\u001b[36m[context reset]\u001b[39m',
+		type: 'return'
+	}));
+}
+
 function resetContext() {
-	if (current) {
+	var hasCurrent = !!current;
+	if (hasCurrent) {
 		current.removeEventListener('close', resetContext);
+		current.removeEventListener('open', returnReset);
 		Ti.App.fireEvent('app:reset');
 	}
 	current = Ti.UI.createWindow({
@@ -14,6 +24,7 @@ function resetContext() {
 		exitOnClose: false
 	});
 	current.addEventListener('close', resetContext);
+	hasCurrent && current.addEventListener('open', returnReset);
 	current.open();
 }
 resetContext();
