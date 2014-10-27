@@ -5,8 +5,15 @@ var constants = require('constants'),
 // create a new execution context with createWindow's url property
 var current;
 function resetContext() {
-	if (current) { current.close(); }
-	current = Ti.UI.createWindow({ url: 'context.js' });
+	if (current) {
+		current.removeEventListener('close', resetContext);
+		Ti.App.fireEvent('app:reset');
+	}
+	current = Ti.UI.createWindow({
+		url: 'context.js',
+		exitOnClose: false
+	});
+	current.addEventListener('close', resetContext);
 	current.open();
 }
 resetContext();
@@ -14,7 +21,7 @@ resetContext();
 // create repl client socket
 var client = new ReplClient(function(code) {
 	if (code === constants.CLEAR_MESSAGE) {
-		resetContext();
+		current.close();
 	} else {
 		Ti.App.fireEvent('app:eval', { code: code });
 	}
