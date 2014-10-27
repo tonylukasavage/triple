@@ -8,7 +8,7 @@ var current;
 function returnReset() {
 	client.write(JSON.stringify({
 		data: '\u001b[36m[context reset]\u001b[39m',
-		type: 'return'
+		type: 'reset'
 	}));
 }
 
