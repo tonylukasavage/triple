@@ -172,3 +172,5 @@ Thanks to all the developers that have helped with triple so far!
      1  Manuel Lehner           0.4%
      1  Fokke Zandbergen        0.4%
 ```
+
+Also, honorable mention to @k0sukey for his initial work on Android support.
