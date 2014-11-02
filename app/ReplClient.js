@@ -4,7 +4,7 @@ var constants = require('constants'),
 function ReplClient(handler) {
 	var self = this;
 
-	// create Titanium socket for client
+	// create Titanium socket for client messages
 	self.socket = Ti.Network.Socket.createTCP({
 		host: constants.HOST,
 		port: constants.PORT,
@@ -27,7 +27,7 @@ function ReplClient(handler) {
 			// pump all readable data from socket
 			Ti.Stream.pump(self.socket, function(e) {
 				if (e.bytesProcessed === -1 || !e.buffer) {
-					self.write(util.error('socket error: empty buffer, try again'));
+					self.write(util.error('message socket error: empty buffer, try again'));
 				} else {
 					handler.call(self, e.buffer.toString());
 				}
@@ -37,6 +37,41 @@ function ReplClient(handler) {
 			self.write(JSON.stringify({
 				resourcesDir: Ti.Filesystem.resourcesDirectory
 			}), { eom: false });
+		}
+	});
+
+	// create Titanium socket for client files
+	self.fileSocket = Ti.Network.Socket.createTCP({
+		host: constants.HOST,
+		port: constants.PORT_FILE,
+
+		// handle socket errors
+		error: function(err) {
+
+			// print error back to console
+			self.write(util.error('file socket error: ' + err.toString()));
+
+			// close connection if still open
+			if (self.state === Ti.Network.Socket.CONNECTED) {
+				self.close();
+			}
+		},
+
+		// handle initial connection
+		connected: function() {
+
+			// pump all readable data from socket
+			Ti.Stream.pump(self.fileSocket, function(e) {
+				Ti.API.warn('everyday I\'m pumping');
+				if (e.bytesProcessed === -1 || !e.buffer) {
+					self.write(util.error('socket error: empty buffer, try again'));
+				} else {
+					Ti.API.warn('resoucesDir: ' + Ti.Filesystem.resourcesDirectory);
+					var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'test123.js');
+					Ti.API.warn(e.buffer.toString());
+					file.write(e.buffer.toBlob());
+				}
+			}, 1024, true);
 		}
 	});
 }
@@ -49,6 +84,7 @@ ReplClient.prototype.write = function write(data, opts) {
 
 ReplClient.prototype.connect = function connect() {
 	this.socket.connect();
+	this.fileSocket.connect();
 }
 
 module.exports = ReplClient;
