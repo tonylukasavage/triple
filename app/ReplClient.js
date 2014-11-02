@@ -62,13 +62,10 @@ function ReplClient(handler) {
 
 			// pump all readable data from socket
 			Ti.Stream.pump(self.fileSocket, function(e) {
-				Ti.API.warn('everyday I\'m pumping');
 				if (e.bytesProcessed === -1 || !e.buffer) {
 					self.write(util.error('socket error: empty buffer, try again'));
 				} else {
-					Ti.API.warn('resoucesDir: ' + Ti.Filesystem.resourcesDirectory);
 					var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'test123.js');
-					Ti.API.warn(e.buffer.toString());
 					file.write(e.buffer.toBlob());
 				}
 			}, 1024, true);
