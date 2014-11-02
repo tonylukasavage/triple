@@ -87,5 +87,10 @@ ReplClient.prototype.connect = function connect() {
 	this.fileSocket.connect();
 }
 
+ReplClient.prototype.close = function() {
+	this.socket.close();
+	this.fileSocket.close();
+};
+
 module.exports = ReplClient;
 
