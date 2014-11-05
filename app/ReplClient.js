@@ -61,48 +61,68 @@ function ReplClient(handler) {
 		connected: function() {
 
 			// pump all readable data from socket
+			var buffer = Ti.createBuffer({ length: 0 }),
+				size = 0;
 			Ti.Stream.pump(self.fileSocket, function(e) {
-				if (e.bytesProcessed === -1 || !e.buffer) {
+				if (!e.buffer) {
 					self.writeError('socket error: empty buffer, try again');
 				} else {
-					// file format
-					//
-					// file path size [Int32]
-					// file path      [String]
-					// file size      [Int32]
-					// file           [Buffer]
 
-					var filepathLen = Ti.Codec.decodeNumber({
-						source: e.buffer,
-						position: 0,
-						type: Ti.Codec.TYPE_INT,
-						byteOrder: Ti.Codec.LITTLE_ENDIAN
-					});
-					var filepath = Ti.Codec.decodeString({
-						source: e.buffer,
-						position: 4,
-						length: filepathLen
-					});
-					var fileLen = Ti.Codec.decodeNumber({
-						source: e.buffer,
-						position: 4 + filepathLen,
-						type: Ti.Codec.TYPE_INT,
-						byteOrder: Ti.Codec.LITTLE_ENDIAN
-					});
-					var fileContent = Ti.createBuffer({
-						length: fileLen
-					});
-					fileContent.copy(e.buffer, 0, 4 + filepathLen + 4, fileLen);
+					// get the size of the whole file transfer
+					if (size === 0) {
+						size = Ti.Codec.decodeNumber({
+							source: e.buffer,
+							position: 0,
+							type: Ti.Codec.TYPE_INT,
+							byteOrder: Ti.Codec.LITTLE_ENDIAN
+						});
+					}
 
-					var file = Ti.Filesystem.getFile(filepath);
-					file.write(fileContent.toBlob());
+					// add this data to the buffer
+					buffer.append(e.buffer);
 
-					// if js/json, save it to the __modules folder
-					// if (relPath) {
-					// 	var modFile = Ti.Filesystem.getFile(RDIR, relPath),
-					// 		modDir = Ti.Filesystem.getFile(RDIR, ); // LKHDLKSJLKDJSLDJLSDJ
-					// 	modFile.write(e.buffer.toBlob());
-					// }
+					// we've got all the bytes, let's process the file
+					if (size === e.totalBytesProcessed) {
+
+						// parse the buffer
+						var filepathLen = Ti.Codec.decodeNumber({
+							source: buffer,
+							position: 4,
+							type: Ti.Codec.TYPE_INT,
+							byteOrder: Ti.Codec.LITTLE_ENDIAN
+						});
+						var filepath = Ti.Codec.decodeString({
+							source: buffer,
+							position: 4 + 4,
+							length: filepathLen
+						});
+						var fileLen = Ti.Codec.decodeNumber({
+							source: buffer,
+							position: 4 + 4 + filepathLen,
+							type: Ti.Codec.TYPE_INT,
+							byteOrder: Ti.Codec.LITTLE_ENDIAN
+						});
+						var fileContent = Ti.createBuffer({
+							length: fileLen
+						});
+						fileContent.copy(buffer, 0, 4 + 4 + filepathLen + 4, fileLen);
+
+						// write the file
+						var file = Ti.Filesystem.getFile(filepath);
+						file.write(fileContent.toBlob());
+
+						// clear the buffer
+						buffer.clear();
+						buffer = Ti.createBuffer({ length: 0 });
+						size = 0;
+
+						// if js/json, save it to the __modules folder
+						// if (relPath) {
+						// 	var modFile = Ti.Filesystem.getFile(RDIR, relPath),
+						// 		modDir = Ti.Filesystem.getFile(RDIR, ); // LKHDLKSJLKDJSLDJLSDJ
+						// 	modFile.write(e.buffer.toBlob());
+						// }
+					}
 				}
 			}, 1024, true);
 		}
