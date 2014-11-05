@@ -104,7 +104,7 @@ function ReplClient(handler) {
 					// 	modFile.write(e.buffer.toBlob());
 					// }
 				}
-			}, 9999999999 /* say whay?! */, true);
+			}, 1024, true);
 		}
 	});
 }
