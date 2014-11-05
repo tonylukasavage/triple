@@ -1,6 +1,8 @@
 var constants = require('constants'),
 	util = require('util');
 
+var RDIR = Ti.Filesystem.resourcesDirectory;
+
 function ReplClient(handler) {
 	var self = this;
 
@@ -63,8 +65,44 @@ function ReplClient(handler) {
 				if (e.bytesProcessed === -1 || !e.buffer) {
 					self.writeError('socket error: empty buffer, try again');
 				} else {
-					var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'test123.js');
-					file.write(e.buffer.toBlob());
+					// file format
+					//
+					// file path size [Int32]
+					// file path      [String]
+					// file size      [Int32]
+					// file           [Buffer]
+
+					var filepathLen = Ti.Codec.decodeNumber({
+						source: e.buffer,
+						position: 0,
+						type: Ti.Codec.TYPE_INT,
+						byteOrder: Ti.Codec.LITTLE_ENDIAN
+					});
+					var filepath = Ti.Codec.decodeString({
+						source: e.buffer,
+						position: 4,
+						length: filepathLen
+					});
+					var fileLen = Ti.Codec.decodeNumber({
+						source: e.buffer,
+						position: 4 + filepathLen,
+						type: Ti.Codec.TYPE_INT,
+						byteOrder: Ti.Codec.LITTLE_ENDIAN
+					});
+					var fileContent = Ti.createBuffer({
+						length: fileLen
+					});
+					fileContent.copy(e.buffer, 0, 4 + filepathLen + 4, fileLen);
+
+					var file = Ti.Filesystem.getFile(filepath);
+					file.write(fileContent.toBlob());
+
+					// if js/json, save it to the __modules folder
+					// if (relPath) {
+					// 	var modFile = Ti.Filesystem.getFile(RDIR, relPath),
+					// 		modDir = Ti.Filesystem.getFile(RDIR, ); // LKHDLKSJLKDJSLDJLSDJ
+					// 	modFile.write(e.buffer.toBlob());
+					// }
 				}
 			}, 9999999999 /* say whay?! */, true);
 		}
