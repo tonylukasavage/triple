@@ -66,7 +66,7 @@ function ReplClient(handler) {
 					var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'test123.js');
 					file.write(e.buffer.toBlob());
 				}
-			}, 1024, true);
+			}, 9999999999 /* say whay?! */, true);
 		}
 	});
 }
