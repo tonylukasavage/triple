@@ -13,7 +13,7 @@ function ReplClient(handler) {
 		error: function(err) {
 
 			// print error back to console
-			self.write(util.error('socket error: ' + err.toString()));
+			self.writeError('socket error: ' + err.toString());
 
 			// close connection if still open
 			if (self.state === Ti.Network.Socket.CONNECTED) {
@@ -27,16 +27,14 @@ function ReplClient(handler) {
 			// pump all readable data from socket
 			Ti.Stream.pump(self.socket, function(e) {
 				if (e.bytesProcessed === -1 || !e.buffer) {
-					self.write(util.error('message socket error: empty buffer, try again'));
+					self.writeError('message socket error: empty buffer, try again');
 				} else {
 					handler.call(self, e.buffer.toString());
 				}
 			}, 1024, true);
 
 			// tell server we're ready by sending back the resources directory
-			self.write(JSON.stringify({
-				resourcesDir: Ti.Filesystem.resourcesDirectory
-			}), { eom: false });
+			self.write(JSON.stringify({ resourcesDir: RDIR }), { raw: true });
 		}
 	});
 
@@ -49,7 +47,7 @@ function ReplClient(handler) {
 		error: function(err) {
 
 			// print error back to console
-			self.write(util.error('file socket error: ' + err.toString()));
+			self.writeError('file socket error: ' + err.toString());
 
 			// close connection if still open
 			if (self.state === Ti.Network.Socket.CONNECTED) {
@@ -63,7 +61,7 @@ function ReplClient(handler) {
 			// pump all readable data from socket
 			Ti.Stream.pump(self.fileSocket, function(e) {
 				if (e.bytesProcessed === -1 || !e.buffer) {
-					self.write(util.error('socket error: empty buffer, try again'));
+					self.writeError('socket error: empty buffer, try again');
 				} else {
 					var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'test123.js');
 					file.write(e.buffer.toBlob());
