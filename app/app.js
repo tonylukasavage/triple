@@ -6,7 +6,7 @@ var current;
 
 // let the repl know we did a reset
 function returnReset() {
-	client.write('[context reset]', { type: 'reset' });
+	client.write('', { type: 'reset' });
 }
 
 // create a new execution context with createWindow's url property
