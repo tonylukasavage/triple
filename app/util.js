@@ -455,7 +455,9 @@ function reduceToSingleString(output, base, braces) {
 
 // NOTE: These type checking functions intentionally don't use `instanceof`
 // because it is fragile and can be easily faked with `Object.create()`.
-var isArray = exports.isArray = Array.isArray;
+var isArray = exports.isArray = Array.isArray || function(o) {
+  return Object.toString.call(o) === '[object Array]';
+};
 
 function isBoolean(arg) {
   return typeof arg === 'boolean';
