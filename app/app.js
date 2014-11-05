@@ -2,16 +2,14 @@ var constants = require('constants'),
 	ReplClient = require('ReplClient'),
 	util = require('util');
 
-// create a new execution context with createWindow's url property
 var current;
 
+// let the repl know we did a reset
 function returnReset() {
-	client.write(JSON.stringify({
-		data: '\u001b[36;1m[context reset]\u001b[39;22m',
-		type: 'reset'
-	}));
+	client.write('[context reset]', { type: 'reset' });
 }
 
+// create a new execution context with createWindow's url property
 function resetContext() {
 	var hasCurrent = !!current;
 	if (hasCurrent) {
@@ -39,19 +37,11 @@ var client = new ReplClient(function(code) {
 });
 
 Ti.App.addEventListener('app:return', function(e) {
-	client.write(JSON.stringify({
-		data: util.inspect(e.value, { colors: true }),
-		type: 'return'
-	}));
+	client.write(util.inspect(e.value, { colors: true }));
 });
 
 Ti.App.addEventListener('app:error', function(e) {
-	var ret = {
-		code: e.code,
-		data: util.error(e.value),
-		type: 'error'
-	};
-	client.write(JSON.stringify(ret));
+	client.writeError(e.value, { code: e.code });
 });
 
 // connect to server

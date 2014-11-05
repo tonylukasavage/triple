@@ -75,8 +75,19 @@ function ReplClient(handler) {
 
 ReplClient.prototype.write = function write(data, opts) {
 	opts = opts || {};
-	var eom = opts.eom === false ? '' : constants.EOM;
-	Ti.Stream.write(this.socket, Ti.createBuffer({ value: data + eom }), function(){});
+	if (!opts.raw) {
+		data = JSON.stringify({
+			data: data,
+			type: opts.type || 'return'
+		}) + constants.EOM;
+	}
+	Ti.Stream.write(this.socket, Ti.createBuffer({ value: data }), function(){});
+};
+
+ReplClient.prototype.writeError = function writeError(data, opts) {
+	opts = opts || {};
+	opts.type = 'error';
+	this.write(data, opts);
 };
 
 ReplClient.prototype.connect = function connect() {
