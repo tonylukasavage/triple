@@ -1,7 +1,8 @@
 var constants = require('constants'),
 	util = require('util');
 
-var RDIR = Ti.Filesystem.resourcesDirectory;
+var RDIR = Ti.Platform.name === 'iPhone OS' ? Ti.Filesystem.resourcesDirectory :
+	Ti.Filesystem.applicationDataDirectory;
 
 function ReplClient(handler) {
 	var self = this;
