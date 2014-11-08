@@ -117,12 +117,6 @@ function ReplClient(handler) {
 						buffer = Ti.createBuffer({ length: 0 });
 						size = 0;
 
-						// if js/json, save it to the __modules folder
-						// if (relPath) {
-						// 	var modFile = Ti.Filesystem.getFile(RDIR, relPath),
-						// 		modDir = Ti.Filesystem.getFile(RDIR, ); // LKHDLKSJLKDJSLDJLSDJ
-						// 	modFile.write(e.buffer.toBlob());
-						// }
 					}
 				}
 			}, 1024, true);
