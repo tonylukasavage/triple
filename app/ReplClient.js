@@ -1,9 +1,6 @@
 var constants = require('constants'),
 	util = require('util');
 
-var RDIR = Ti.Platform.name === 'iPhone OS' ? Ti.Filesystem.resourcesDirectory :
-	Ti.Filesystem.applicationDataDirectory;
-
 function ReplClient(handler) {
 	var self = this;
 
@@ -37,7 +34,7 @@ function ReplClient(handler) {
 			}, 1024, true);
 
 			// tell server we're ready by sending back the resources directory
-			self.write(JSON.stringify({ resourcesDir: RDIR }), { raw: true });
+			self.write(JSON.stringify({ resourcesDir: constants.FILE_DIR }), { raw: true });
 		}
 	});
 
@@ -117,12 +114,6 @@ function ReplClient(handler) {
 						buffer = Ti.createBuffer({ length: 0 });
 						size = 0;
 
-						// if js/json, save it to the __modules folder
-						// if (relPath) {
-						// 	var modFile = Ti.Filesystem.getFile(RDIR, relPath),
-						// 		modDir = Ti.Filesystem.getFile(RDIR, ); // LKHDLKSJLKDJSLDJLSDJ
-						// 	modFile.write(e.buffer.toBlob());
-						// }
 					}
 				}
 			}, 1024, true);
