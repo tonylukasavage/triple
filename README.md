@@ -32,8 +32,10 @@ $ npm install -g triple
 
     -h, --help                      output usage information
     -V, --version                   output the version number
-    -m, --module <ids>              Add native module(s) to REPL
+    --clean                         re-create the triple titanium app
     -I, --ios-version <iosVersion>  select the ios version to use
+    -m, --module <ids>              Add native module(s) to REPL
+    -p, --platform <platform>       mobile platform for triple
     -v, --verbose                   Enable verbose output
 
   Examples:
