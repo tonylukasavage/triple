@@ -6,6 +6,7 @@
 
 ## Features
 
+* Supports iOS simulator and Android emulator
 * Full access to [Titanium API](http://docs.appcelerator.com/titanium/latest/#!/api), including tab completion for Titanium namespaces
 * Command history (&uarr;,&darr;)
 * Save and load REPL sessions
@@ -136,17 +137,13 @@ undefined
 
 ## Support
 
-The following is the only configuration for which this has been tested so far:
+triple has so far been developed and tested with the following OSes and mobile platforms:
 
+* iOS simulator & Android emulator
 * Mac OSX 10.9.4+
-* iOS 7.1+ simulator
 * Titanium SDK 3.2.3+
 
 Support for all of Appcelerator's supported platforms is planned. Windows OS support is planned as well.
-
-### Android support
-
-Basic Android support is available (`--plaform android`). Currently all of triple's features are being implemented and/or tested against Android. Check issue[#10](https://github.com/tonylukasavage/triple/issues/10) for details.
 
 ## Known Issues
 
@@ -154,6 +151,7 @@ Aside from the [issues](https://github.com/tonylukasavage/triple/issues) in this
 
 * \[[TIMOB-17449](https://jira.appcelerator.org/browse/TIMOB-17449)\] - iOS: this.Kroll cannot be inspected, and throws errors when you try
 * \[[~~TIMOB-17448~~](https://jira.appcelerator.org/browse/TIMOB-17448)\] - iOS: error when commonjs module exports certain types (anything other than function, object, or string). _**Fixed in Titanium 3.4.0**_.
+* \[[#82](https://github.com/tonylukasavage/triple/issues/82)\] - Android currently does not support local `require()` calls like iOS. This should be addressed in triple 0.4.0.
 
 ## Contributors
 
