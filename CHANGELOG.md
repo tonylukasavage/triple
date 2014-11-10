@@ -1,3 +1,14 @@
+### 2014.11.10, v0.3.0
+
+> Full listing at: [https://github.com/tonylukasavage/triple/issues?q=milestone%3A0.3.0+is%3Aclosed](https://github.com/tonylukasavage/triple/issues?q=milestone%3A0.3.0+is%3Aclosed)
+
+* Android emulator support ([#10](https://github.com/tonylukasavage/triple/issues/10))
+* Added delay for '`.load` ([#24](https://github.com/tonylukasavage/triple/issues/24))
+* Automcatically `.load` from folder via `app.js` or `index.js` file ([#51](https://github.com/tonylukasavage/triple/pull/52))
+* triple app now housed in HOME folder ([#62](https://github.com/tonylukasavage/triple/issues/62))
+* Specify platform at comand line ([#63](https://github.com/tonylukasavage/triple/issues/63))
+* Clean the triple app ([#64](https://github.com/tonylukasavage/triple/issues/64))
+
 ### 2014.10.19, v0.2.3
 
 * Fix crash when copy/pasting multiple lines into REPL ([#57](https://github.com/tonylukasavage/triple/issues/57))
