@@ -154,3 +154,23 @@ Aside from the [issues](https://github.com/tonylukasavage/triple/issues) in this
 
 * \[[TIMOB-17449](https://jira.appcelerator.org/browse/TIMOB-17449)\] - iOS: this.Kroll cannot be inspected, and throws errors when you try
 * \[[~~TIMOB-17448~~](https://jira.appcelerator.org/browse/TIMOB-17448)\] - iOS: error when commonjs module exports certain types (anything other than function, object, or string). _**Fixed in Titanium 3.4.0**_.
+
+## Contributors
+
+Thanks to all the developers that have helped with triple so far!
+
+```
+ project  : triple
+ repo age : 4 months
+ active   : 42 days
+ commits  : 248
+ files    : 25
+ authors  :
+   237  Tony Lukasavage         95.6%
+     4  skypanther              1.6%
+     2  jasonkneen              0.8%
+     2  Jeff Haynie             0.8%
+     1  Matt Apperson           0.4%
+     1  Manuel Lehner           0.4%
+     1  Fokke Zandbergen        0.4%
+```
