@@ -1,6 +1,6 @@
 ### 2014.11.10, v0.3.0
 
-> Full listing at: [https://github.com/tonylukasavage/triple/issues?q=milestone%3A0.3.0+is%3Aclosed](https://github.com/tonylukasavage/triple/issues?q=milestone%3A0.3.0+is%3Aclosed)
+> Full listing of [0.3.0 resolved issues](https://github.com/tonylukasavage/triple/issues?q=milestone%3A0.3.0+is%3Aclosed)
 
 * Android emulator support ([#10](https://github.com/tonylukasavage/triple/issues/10))
 * Added delay for '`.load` ([#24](https://github.com/tonylukasavage/triple/issues/24))
