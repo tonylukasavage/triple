@@ -1,6 +1,6 @@
 {
   "name": "triple",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "REPL for Titanium",
   "homepage": "git://github.com/tonylukasavage/triple",
   "bugs": {
