@@ -51,6 +51,7 @@
     "commander": "^2.2.0",
     "fs-extra": "^0.10.0",
     "lodash": "^2.4.1",
+    "replace": "^0.3.0",
     "request": "^2.39.0",
     "tiapp.xml": "^0.2.2",
     "titanium": "^3.2.3"
