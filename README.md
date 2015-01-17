@@ -159,13 +159,13 @@ Thanks to all the developers that have helped with triple so far!
 
 ```
  project  : triple
- repo age : 4 months
- active   : 42 days
- commits  : 248
+ repo age : 7 months
+ active   : 47 days
+ commits  : 259
  files    : 25
- authors  :
-   237  Tony Lukasavage         95.6%
-     4  skypanther              1.6%
+ authors  : 
+   248  Tony Lukasavage         95.8%
+     4  skypanther              1.5%
      2  jasonkneen              0.8%
      2  Jeff Haynie             0.8%
      1  Matt Apperson           0.4%
