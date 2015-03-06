@@ -1,3 +1,3 @@
 exports.command = function(program) {
-	program.command('repl [file [delay]] [options]', 'REPL for Titanim');
+	program.command('repl [options] [file [delay]]', 'REPL for Titanium');
 };
