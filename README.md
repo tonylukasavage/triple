@@ -1,4 +1,5 @@
-![https://david-dm.org/tonylukasavage/triple.svg](https://david-dm.org/tonylukasavage/triple)
+[![Dev Dependency check](https://david-dm.org/tonylukasavage/triple.svg)](https://david-dm.org/tonylukasavage/triple)
+
 # triple
 
 [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) for Titanium. Inspired heavily by node.js's own [repl](http://nodejs.org/api/repl.html).
