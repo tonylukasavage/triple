@@ -44,16 +44,16 @@
     "appc-cli-plugin"
   ],
   "dependencies": {
-    "acorn": "^0.6.0",
-    "async": "^0.9.0",
-    "chalk": "^0.5.1",
+    "acorn": "2.4.0",
+    "async": "1.4.2",
+    "chalk": "1.1.1",
     "char-spinner": "^1.0.1",
     "commander": "^2.2.0",
-    "fs-extra": "^0.10.0",
-    "lodash": "^2.4.1",
+    "fs-extra": "0.24.0",
+    "lodash": "3.10.1",
     "replace": "^0.3.0",
     "request": "^2.39.0",
     "tiapp.xml": "^0.2.2",
-    "titanium": "^3.2.3"
+    "titanium": "5.0.2"
   }
 }
